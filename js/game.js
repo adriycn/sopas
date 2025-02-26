@@ -193,7 +193,7 @@
               if(ob.type === "cactus" || ob.type === "cactusGroup") {
                 this.killMessage = "Killed by **Cactus**";
               } else if(ob.type === "bird") {
-                this.killMessage = "Killed by a " + (ob.floatEffect ? "**oscillating Bird**" : "**Bird**");
+                this.killMessage = "Killed by a " + (ob.floatEffect ? "**Troll Bird**" : "**Bird**");
               }
               this.gameOver();
               break;
