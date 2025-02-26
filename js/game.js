@@ -186,14 +186,14 @@
         this.potions = this.potions.filter(pt => pt.x + pt.getHitbox().width > 0);
   
         // Collision: obstacles (unless Invincible effect active)
-        for(let ob of this.obstacles) {
+           for(let ob of this.obstacles) {
           if(collides(this.character.getHitbox(), ob.getHitbox())) {
             if(!this.effects.shield.active) {
               // Determine kill message based on obstacle type.
               if(ob.type === "cactus" || ob.type === "cactusGroup") {
-                this.killMessage = "Killed by **Cactus**";
+                this.killMessage = "Killed by Cactus";
               } else if(ob.type === "bird") {
-                this.killMessage = "Killed by a " + (ob.floatEffect ? "**Troll Bird**" : "**Bird**");
+                this.killMessage = "Killed by a " + (ob.floatEffect ? "Troll Bird" : "Bird");
               }
               this.gameOver();
               break;
