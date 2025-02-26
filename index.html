@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Disable zooming and prevent pinch zoom -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Sopas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Rotate Warning Overlay (shown when in portrait) -->
+  <div id="rotate-overlay">
+    <p>This game will not work on portrait mode, please rotate your phone.</p>
+  </div>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div id="loader-spinner"></div>
+    <div id="loading-info">
+      <h2>Loading assets...</h2>
+      <div id="loading-bar">
+        <span id="loading-text"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Container -->
+  <div id="game-container" style="display:none;">
+    <!-- UI Elements -->
+    <div id="scoreboard">
+      <div id="score">Score: 0/7000</div>
+      <div id="highscore">High Score: 0</div>
+      <div id="potion-timer" style="display:none;"></div>
+    </div>
+    <!-- Canvas for rendering game elements -->
+    <canvas id="game-canvas"></canvas>
+    <!-- Mobile Controls: Only Jump Button (visible only on mobile) -->
+    <div id="mobile-controls">
+      <button id="jump-btn">Jump</button>
+    </div>
+  </div>
+  
+  <!-- Store Overlay -->
+  <div id="store-overlay" class="overlay" style="display:none;">
+    <div class="overlay-content">
+      <h2>Store</h2>
+      <p>Working in progress</p>
+      <button id="store-close">Close</button>
+    </div>
+  </div>
+
+  <!-- Notification for Potion Pickup -->
+  <div id="notification"></div>
+
+  <!-- JS Modules -->
+  <script src="js/loader.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Orientation detection: show overlay if in portrait mode
+    function checkOrientation() {
+      const overlay = document.getElementById("rotate-overlay");
+      if(window.innerWidth < window.innerHeight) {
+        overlay.style.display = "flex";
+      } else {
+        overlay.style.display = "none";
+      }
+    }
+    window.addEventListener("resize", checkOrientation);
+    window.addEventListener("orientationchange", checkOrientation);
+    checkOrientation();
+  </script>
+</body>
+</html>
