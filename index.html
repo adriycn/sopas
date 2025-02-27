@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Rotate Warning Overlay (shown when in portrait) -->
+  <!-- Rotate Warning Overlay (for portrait mode) -->
   <div id="rotate-overlay">
-    <p>This game will not work on portrait mode, please rotate your phone.</p>
+    <p>This game will not work on portrait mode, I recommend you rotate your phone.</p>
   </div>
 
   <!-- Loading Screen -->
@@ -26,15 +26,15 @@
 
   <!-- Game Container -->
   <div id="game-container" style="display:none;">
-    <!-- UI Elements -->
+    <!-- Scoreboard -->
     <div id="scoreboard">
       <div id="score">Score: 0/7000</div>
       <div id="highscore">High Score: 0</div>
       <div id="potion-timer" style="display:none;"></div>
     </div>
-    <!-- Canvas for rendering game elements -->
+    <!-- Canvas for game rendering -->
     <canvas id="game-canvas"></canvas>
-    <!-- Mobile Controls: Only Jump Button (visible only on mobile) -->
+    <!-- Mobile Controls: Only the Jump button (visible on mobile devices only) -->
     <div id="mobile-controls">
       <button id="jump-btn">Jump</button>
     </div>
@@ -49,7 +49,7 @@
     </div>
   </div>
 
-  <!-- Notification for Potion Pickup -->
+  <!-- Potion Pickup Notification -->
   <div id="notification"></div>
 
   <!-- JS Modules -->
@@ -60,7 +60,7 @@
   <script src="js/main.js"></script>
   <script src="info.js"></script>
   <script>
-    // Orientation detection: show overlay if in portrait mode
+    // Orientation check: show rotate overlay if in portrait mode.
     function checkOrientation() {
       const overlay = document.getElementById("rotate-overlay");
       if(window.innerWidth < window.innerHeight) {
